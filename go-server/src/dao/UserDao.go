@@ -28,8 +28,8 @@ func (userDaoImpl *UserDaoImpl) QueryUserByUserName(username string) (student *S
 		fmt.Println(err.Error())
 	}
 	defer rows.Close()
+	student = &Student{}
     if rows.Next() {
-		student = &Student{}
 		rerr := rows.Scan(student.Student_id,student.Username,student.Password)
 		if rerr!=nil {
 		   fmt.Println()
